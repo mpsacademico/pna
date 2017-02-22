@@ -6,16 +6,20 @@
 		<link rel="stylesheet" type="text/css" href="estilo.css">
 	</head>
 	<body>
-		<h1><?php echo $p["nome"]; ?></h1>
-		<p><?php echo $p["uf"]; ?></p>
-		<?php $previsao_t = $p["previsao"]; ?>
-		<ul>
-			<?php foreach($previsao_t as $pt => $v) { ?>
-			<li><img src="icones/<?php echo $v['ico']; ?>.png"><?php echo $v["dia"]; ?></li>
-			<?php } ?>
-		</ul>
+		<header>
+			<h1><?php echo $p["nome"]; ?> - <?php echo $p["uf"]; ?></h1>
+		</header>
+		<?php $previsao_t = $p["previsao"]; ?> 
+		<?php foreach($previsao_t as $pt => $ps) { //ps previsao semanal?>
+		<h2><?php echo $ps["data"]; ?> <?php echo $ps["dia"]; ?></h2>
+		<p><?php echo $ps["desc"]; ?></p>
+		<p><?php echo $ps["texto"]; ?></p>
+		<p>Temperaturas: Min: <?php echo $ps["min"]; ?> - Max: <?php echo $ps["max"]; ?></p>
+		<p>Nascer do Sol: <?php echo $ps["sunrise"]; ?> - Pôr do Sol: <?php echo $ps["sunset"]; ?></p>
+		<p>UV: <?php echo $ps["uv"]; ?></p>
+		<?php } ?>		
 		<footer>
-			Última atualização em <?php echo $p["atualizacao"]; ?>
+			<small>Última atualização em <?php echo $p["atualizacao"]; ?></small>
 		</footer>
 	<!-- ANALYTICS -->
 	</body>
