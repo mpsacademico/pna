@@ -9,15 +9,17 @@
 		<?php
 		include_once("static/css/normalize500.min.css");	
 		include_once("static/css/skeleton204.min.css");		
-		?>
-		
+		?>		
 		span {
-			font-size:32px;
+			font-size:36px;
 		}			
+		p {
+			margin-bottom: 2px;
+		}
 		</style>
 	</head>
 	<body style="background-color:#f4f4f4">	
-		<div class="container">
+		<div class="container" style="margin-top:25px;">
 			<div class="row">
 				<div class="twelve columns">
 					<header>
@@ -29,14 +31,13 @@
 			<div class="row">
 			<?php foreach($previsao_t as $pt => $ps) { //ps previsao semanal?>			
 				<div class="two columns" style="text-align:center">
-					<h5><?php echo $ps["data"]; ?></h5>
-					<h6><?php echo $ps["dia"]; ?></h6>
-					<p><img src="static/img/<?php echo $ps["ico"]; ?>.png" width="100px"></p>
+					<p><h5><?php echo $ps["data"]; ?></h5>
+					<?php echo $ps["dia"]; ?></p>
+					<p><img title="<?php echo $ps["desc"]; ?>" src="static/img/<?php echo $ps["ico"]; ?>.png" width="100%"></p>
 					<p><span style="color:#2980b9"><?php echo $ps["min"]; ?></span><small>ºC</small> &bull; <span style="color:#c0392b"><?php echo $ps["max"]; ?></span><small>ºC</small></p>		
-					<p>Prob de chuva:<br><?php echo $ps["prob"]; ?></p>
-					<p>Sol: <br>&uarr; <?php echo $ps["sunrise"]; ?><br>&darr; <?php echo $ps["sunset"]; ?></p>
-					<p>UV: <br><?php echo $ps["uv"]; ?></p>	
-					<p><?php echo $ps["desc"]; ?></p>	
+					<p>Prob. de chuva:<br><?php echo $ps["prob"]; ?></p>
+					<p>&#9728; <br>&uarr; <?php echo $ps["sunrise"]; ?><br>&darr; <?php echo $ps["sunset"]; ?></p>
+					<p>UV: <br><?php echo $ps["uv"]; ?></p>					
 				</div>
 			<?php } ?>
 			</div>
