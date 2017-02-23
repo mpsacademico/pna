@@ -6,5 +6,5 @@
 	$cl = isset($_GET['cidade']) ? $_GET['cidade'] : NULL;
 	$previsao = file_get_contents("http://localhost/maspt/previsao.php?cl=".$cl."&tr=json&ca=".CA);
 	$p = json_decode($previsao, TRUE);
-	require_once("pagina.php");
+	require_once("templates/pagina_web.php");
 ?>
