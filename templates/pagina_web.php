@@ -9,6 +9,9 @@
 		span {
 			font-size:32px;
 		}
+		* {
+			color: red !important;
+		}		
 		</style>
 	</head>
 	<body style="background-color:#f4f4f4">	
@@ -28,8 +31,7 @@
 					<h6><?php echo $ps["dia"]; ?></h6>
 					<p><img src="static/img/<?php echo $ps["ico"]; ?>.png" width="111px"></p>
 					<p><span style="color:#2980b9"><?php echo $ps["min"]; ?></span> <span style="color:#c0392b"><?php echo $ps["max"]; ?></span> <small>ºC</small></p>
-					<p><?php echo $ps["desc"]; ?></p>
-					<p><?php echo $ps["texto"]; ?></p>
+					<p><?php echo $ps["desc"]; ?></p>					
 			
 					<p>Probabilidade de chuva: <?php echo $ps["prob"]; ?></p>
 					<p>Nascer do Sol: <?php echo $ps["sunrise"]; ?> - Pôr do Sol: <?php echo $ps["sunset"]; ?></p>
