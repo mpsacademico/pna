@@ -2,6 +2,7 @@
 	ini_set('display_errors', 1);
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
-	
-	echo "Bem-vindo ao customizador";
+	header("Location: previsao.php?cidade=244");
+	die();
+	//echo "Bem-vindo ao Customizador!";
 ?>

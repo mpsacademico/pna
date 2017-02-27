@@ -22,6 +22,7 @@
 		<meta property="og:image:height" content="300" />	
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="icon" type="image/png" href="static/img/favicon.png">
+		<link rel="stylesheet" type="text/css" href="static/css/spritesheet.css">
 		<style type="text/css">			
 		<?php
 		include_once("static/css/normalize500.min.css");	
@@ -50,7 +51,7 @@
 				<div class="two columns" style="text-align:center">
 					<p><h5><?php echo $ps["data"]; ?></h5>
 					<?php echo $ps["dia"]; ?></p>
-					<p><img title="<?php echo $ps["desc"]; ?>" src="static/img/<?php echo $ps["ico"]; ?>.png" width="100%"></p>
+					<p><div style="width: 50%;margin: 0 auto;"><i class="sprite sprite-<?php echo $ps["ico"]; ?>"></i></div></p>					
 					<p><span style="color:#2980b9"><?php echo $ps["min"]; ?></span><small>ºC</small> &bull; <span style="color:#c0392b"><?php echo $ps["max"]; ?></span><small>ºC</small></p>		
 					<p>Prob. de chuva:<br><?php echo $ps["prob"]; ?></p>
 					<p>&#9728; <br>&uarr; <?php echo $ps["sunrise"]; ?><br>&darr; <?php echo $ps["sunset"]; ?></p>
