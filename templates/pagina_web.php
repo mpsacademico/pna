@@ -37,7 +37,7 @@
 		</style>
 	</head>
 	<body style="background-color:#f4f4f4">	
-		<div class="container" style="margin-top:25px;">
+		<div class="container" style="margin-top:25px;">			
 			<div class="row">
 				<div class="twelve columns">
 					<header>
@@ -45,9 +45,30 @@
 					</header>
 				</div>
 			</div>
-			<?php $previsao_t = $p["previsao"]; ?> 
+			<?php
+			$pt = $p["previsao"]; //previsão do tempo 
+			if(count($pt)==7){
+				$ps = $pt[0]; //previsão dia atual
+				unset($pt[0]);
+			?>
 			<div class="row">
-			<?php foreach($previsao_t as $pt => $ps) { //ps previsao semanal?>			
+				<div class="eight columns">
+					<p><h5><?php echo $ps["data"]; ?></h5>
+					<?php echo $ps["dia"]; ?></p>
+					<p><i class="sprite sprite-<?php echo $ps["ico"]; ?>"></i></p>					
+					<p><span style="color:#2980b9"><?php echo $ps["min"]; ?></span><small>ºC</small> &bull; <span style="color:#c0392b"><?php echo $ps["max"]; ?></span><small>ºC</small></p>					
+				</div>
+				<div class="four columns">
+					<p>Prob. de chuva:<br><?php echo $ps["prob"]; ?></p>
+					<p>&#9728; <br>&uarr; <?php echo $ps["sunrise"]; ?><br>&darr; <?php echo $ps["sunset"]; ?></p>
+					<p>UV: <br><?php echo $ps["uv"]; ?></p>	
+				</div>
+			</div>
+			<?php
+			}			
+			?>
+			<div class="row">
+			<?php foreach($pt as $pt => $ps) { //ps previsao semanal?>			
 				<div class="two columns" style="text-align:center">
 					<p><h5><?php echo $ps["data"]; ?></h5>
 					<?php echo $ps["dia"]; ?></p>
