@@ -13,11 +13,28 @@ class PrevisaoCompleta{
 	}
 
 	private function lerDadosExternos($pc){
-		//pc - previsão completa do serviço do CPTEC/INPE
+		//pc - previsão completa (apptempo) do serviço do CPTEC/INPE
 		$this->setLocalidade(new Localidade($pc["nome"], $pc["uf"], $pc["pais"]));
 		$this->setAtualizacao($pc["atualizacao"]);
+		if(isset($pc["metar"])){
+			$m = $pc["metar"];
+			$this->setCondicaoAtual(new condicaoAtual(
+					$m["data"],
+				    $m["ico"],
+				    $m["desc"],
+				    $m["texto"],
+				    $m["temp"],
+				    $m["umidade"],
+				    $m["dirvento"],
+				    $m["velvento"],
+				    $m["sentermica"],
+				    $m["pressao"]
+				)
+			);
+			
+		}
 		foreach($pc["previsao"] as $p){
-			$this->previsaoSemanal[] = new Previsao(
+			$this->getPrevisaoSemanal()[] = new Previsao(
 				$p["dia"],
 				$p["data"],
 				$p["ico"],
@@ -37,7 +54,7 @@ class PrevisaoCompleta{
 			unset($this->getPrevisaoSemanal()[0]);
 		}
 		foreach($pc["estendida"] as $p){
-			$this->previsaoEstendida[] = new PrevisaoEstendida(
+			$this->getPrevisaoEstendida()[] = new PrevisaoEstendida(
 				$p["dia"],
 				$p["data"],
 				$p["ico"],

@@ -6,7 +6,8 @@ $classes = array(
 	"Localidade" => "Localidade.php",
 	"PrevisaoTempo" => "PrevisaoTempo.php",
 	"Previsao" => "Previsao.php",
-	"PrevisaoEstendida" => "PrevisaoEstendida.php"
+	"PrevisaoEstendida" => "PrevisaoEstendida.php",
+	"CondicaoAtual" => "CondicaoAtual.php"
 );
 foreach ($classes as $classe => $arquivo){
 	require_once $arquivo;
