@@ -26,7 +26,8 @@ class Aplicacao{
 			}elseif($tp=="texto"){
 				require_once("templates/texto_formatado.php");	
 			}
-
+		}else{
+			require_once("templates/pagina_web.php");		
 		}
 		
 	}

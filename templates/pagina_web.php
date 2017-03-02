@@ -23,7 +23,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="icon" type="image/png" href="static/img/favicon.png">
 		<link rel="stylesheet" type="text/css" href="static/css/spritesheet.css">
-		<style type="text/css">			
+		<style type="text/css">		
+		.quadro{
+			border-top: solid 5px #dbdbdb;
+			padding-top: 10px;
+		}	
 		<?php
 		include_once("static/css/normalize500.min.css");	
 		include_once("static/css/skeleton204.min.css");		
@@ -67,6 +71,7 @@
 			<?php
 			}			
 			?>
+			<div class="quadro">
 			<div class="row">
 			<?php foreach($pt as $pt => $ps) { //ps previsao semanal?>			
 				<div class="two columns" style="text-align:center">
@@ -80,8 +85,26 @@
 				</div>
 			<?php } ?>
 			</div>
+			</div>
+
+			<div class="quadro">
+			<div class="row">
+			<?php $pe = $pc->getPrevisaoEstendida() ?>
+			<?php foreach($pe as $p) { //ps previsao semanal?>			
+				<div class="two columns" style="text-align:center">
+					<p><h5><?php echo $p->getData(); ?></h5>
+					<?php echo $p->getDiaSemana(); ?></p>
+					<p><div style="width: 50%;margin: 0 auto;"><i class="sprite sprite-<?php echo $p->getIcone(); ?>"></i></div></p>					
+					<p><span style="color:#2980b9"><?php echo $p->getMinima(); ?></span><small>ºC</small> &bull; <span style="color:#c0392b"><?php echo $p->getMaxima(); ?></span><small>ºC</small></p>		
+					<p>Prob. de chuva:<br><?php echo $p->getProbChuva(); ?></p>
+					<p>&#9728; <br>&uarr; <?php echo $p->getNascerSol(); ?><br>&darr; <?php echo $p->getPorSol(); ?></p>									
+				</div>
+			<?php } ?>
+			</div>
+			</div>
+
 			<footer>
-				<small>Última atualização em <?php echo $p["atualizacao"]; ?></small>
+				<small>Última atualização em <?php echo $pc->getAtualizacao(); ?></small>
 			</footer>
 		</div>
 	<!-- ANALYTICS -->
