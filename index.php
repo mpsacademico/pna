@@ -8,7 +8,7 @@
 	
 	$rd = new RequisicaoDados("http://localhost/maspt/api/previsao.php", "?cl=244&tr=json&ca=44");
 	$pc = json_decode($rd->getResposta(), true);
-	//print_r($pc);
+	print_r($pc);
 	$pc = new PrevisaoCompleta($pc);
 	print_r($pc);
 	//header("Location: previsao.php?cidade=244");
