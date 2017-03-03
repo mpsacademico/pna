@@ -7,11 +7,18 @@ class Aplicacao{
 		
 		$cl = isset($_GET['cidade']) ? $_GET['cidade'] : NULL;
 		$tp = isset($_GET['pagina']) ? $_GET['pagina'] : NULL;
-		if(is_null($cl) || empty($cl)){
+		$ac = isset($_GET['contraste']) ? $_GET['constraste'] : NULL;
+		
+		if(is_null($cl)){			
+			require_once("templates/pagina_inicial.php");
+			die();
+		}elseif(empty($cl)){
 			$erros[] = "Nenhuma cidade foi informada";
 			require_once("templates/erro_generico.php");
 			die();
 		}
+		
+		
 
 		
 		$cl = isset($_GET['cidade']) ? $_GET['cidade'] : NULL;
