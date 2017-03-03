@@ -7,10 +7,9 @@ $classes = array(
 	"PrevisaoTempo" => "PrevisaoTempo.php",
 	"Previsao" => "Previsao.php",
 	"PrevisaoEstendida" => "PrevisaoEstendida.php",
-	"CondicaoAtual" => "CondicaoAtual.php",
-	"Aplicacao" => "Aplicacao.php"
+	"CondicaoAtual" => "CondicaoAtual.php"
 );
 foreach ($classes as $classe => $arquivo){
-	require_once $arquivo;
+	require_once __DIR__."/../src/".$arquivo;
 }
 ?>

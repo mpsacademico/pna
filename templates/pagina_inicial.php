@@ -6,13 +6,13 @@
 		<meta property="og:site_name" content="CPTEC/INPE" />
 		<meta property="og:locale" content="pt-BR" />
 	
-		<meta name="description" content="<?php echo $desc; ?>" />
-		<meta name="keywords" content="previsão, tempo, <?php echo $p["nome"]; ?>, clima, sol, chuva, temperatura" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="previsão, tempo, , clima, sol, chuva, temperatura" />
 		<meta name="author" content="Marcos Paulo da Silva - Visualização CPTEC/INPE" />    
 		<meta property="og:url" content="" />
 		<meta property="og:type" content="website" />    
-		<meta property="og:title" content="Previsão para <?php echo $p["nome"]; ?> - CPTEC/INPE" />
-		<meta property="og:description" content="<?php echo $desc; ?>" />
+		<meta property="og:title" content="Previsão para  - CPTEC/INPE" />
+		<meta property="og:description" content="" />
 		<meta property="og:image" content="LINK" />
 		<meta property="og:image:type" content="image/jpeg" />
 		<meta property="og:image:width" content="300" />
