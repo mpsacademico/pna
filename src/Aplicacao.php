@@ -5,9 +5,15 @@ class Aplicacao{
 	
 		$erros = array();
 		
-		$cl = isset($_GET['cidade']) ? $_GET['cidade'] : NULL;
-		$tp = isset($_GET['pagina']) ? $_GET['pagina'] : NULL;
-		$ac = isset($_GET['contraste']) ? $_GET['constraste'] : NULL;
+		$cl = isset($_GET['cidade']) ? $_GET['cidade'] : NULL; //1
+		$tp = isset($_GET['pagina']) ? $_GET['pagina'] : NULL; //0
+		$ac = isset($_GET['contraste']) ? $_GET['constraste'] : NULL; //0
+		
+		$tps = array("web", "texto");
+		
+		if(is_null($tp) || empty($tp) || !in_array($tp, $tps)){
+			$tp = "web";
+		}
 		
 		if(is_null($cl)){			
 			require_once("templates/pagina_inicial.php");
