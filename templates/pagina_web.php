@@ -56,12 +56,13 @@
 				$ps = $pt[0]; //previsão dia atual
 				unset($pt[0]);
 			?>
+			<div style="background-color:#FFDEAD;padding:10px">
 			<div class="row">
 				<div class="eight columns">
-					<p><h5><?php echo $ps["data"]; ?></h5>
+					<p><h5 style="display:inline"><?php echo $ps["data"]; ?></h5>
 					<?php echo $ps["dia"]; ?></p>
 					<p><i class="sprite sprite-<?php echo $ps["ico"]; ?>"></i></p>					
-					<p><span style="color:#2980b9"><?php echo $ps["min"]; ?></span><small>ºC</small> &bull; <span style="color:#c0392b"><?php echo $ps["max"]; ?></span><small>ºC</small></p>					
+					<p><span style="color:#2980b9"><?php echo $ps["min"]; ?></span><small>ºC</small> <span style="color:#c0392b"><?php echo $ps["max"]; ?></span><small>ºC</small></p>					
 				</div>
 				<div class="four columns">
 					<p>Prob. de chuva:<br><?php echo $ps["prob"]; ?></p>
@@ -72,14 +73,15 @@
 			<?php
 			}			
 			?>
+</div>
 			<div class="quadro">
 			<div class="row" style="">
 			<?php foreach($pt as $pt => $ps) { //ps previsao semanal?>			
 				<div class="two columns" style="text-align:center">
 					<p><h5><?php echo $ps["data"]; ?></h5>
 					<?php echo $ps["dia"]; ?></p>
-					<p><div style="width: 50%;margin: 0 auto;"><i class="sprite sprite-<?php echo $ps["ico"]; ?>"></i></div></p>					
-					<p><span style="color:#2980b9"><?php echo $ps["min"]; ?></span><small>ºC</small> &bull; <span style="color:#c0392b"><?php echo $ps["max"]; ?></span><small>ºC</small></p>		
+					<p><i class="sprite sprite-<?php echo $ps["ico"]; ?>"></i></p>					
+					<p><span style="color:#2980b9"><?php echo $ps["min"]; ?></span><small>ºC</small> <span style="color:#c0392b"><?php echo $ps["max"]; ?></span><small>ºC</small></p>		
 					<p>Prob. de chuva:<br><?php echo $ps["prob"]; ?></p>
 					<p>&#9728; <br>&uarr; <?php echo $ps["sunrise"]; ?><br>&darr; <?php echo $ps["sunset"]; ?></p>
 					<p>UV: <br><?php echo $ps["uv"]; ?></p>					
@@ -90,17 +92,17 @@
 
 			<div class="quadro">
 			<div class="row">
-			<?php $pe = $pc->getPrevisaoEstendida() ?>
-			<?php foreach($pe as $p) { //ps previsao semanal?>			
+			<?php $pe = $pc->getPrevisaoEstendida(); $i = 0; ?>
+			<?php foreach($pe as $p) { $i++; //ps previsao semanal?>			
 				<div class="two columns" style="text-align:center">
 					<p><h5><?php echo $p->getData(); ?></h5>
 					<?php echo $p->getDiaSemana(); ?></p>
-					<p><div style="width: 50%;margin: 0 auto;"><i title="<?php echo $p->getDescricao(); ?>" class="sprite sprite-<?php echo $p->getIcone(); ?>"></i></div></p>					
-					<p><span style="color:#2980b9"><?php echo $p->getMinima(); ?></span><small>ºC</small> &bull; <span style="color:#c0392b"><?php echo $p->getMaxima(); ?></span><small>ºC</small></p>		
+					<p><i title="<?php echo $p->getDescricao(); ?>" class="sprite sprite-<?php echo $p->getIcone(); ?>"></i></p>					
+					<p><span style="color:#2980b9"><?php echo $p->getMinima(); ?></span><small>ºC</small> <span style="color:#c0392b"><?php echo $p->getMaxima(); ?></span><small>ºC</small></p>		
 					<p>Prob. de chuva:<br><?php echo $p->getProbChuva(); ?></p>
 					<p>&#9728; <br>&uarr; <?php echo $p->getNascerSol(); ?><br>&darr; <?php echo $p->getPorSol(); ?></p>									
 				</div>
-			<?php } ?>
+			<?php if($i==6)break;} ?>
 			</div>
 			</div>
 
