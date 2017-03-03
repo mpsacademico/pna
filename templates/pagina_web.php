@@ -25,8 +25,9 @@
 		<link rel="stylesheet" type="text/css" href="static/css/spritesheet.css">
 		<style type="text/css">		
 		.quadro{
-			border-top: solid 5px #dbdbdb;
-			padding-top: 10px;
+			background-color:#f0f0f0;
+			border-top: solid 5px #e5e5e5;
+			padding: 5px 10px 10px 10px;
 		}	
 		<?php
 		include_once("static/css/normalize500.min.css");	
@@ -72,7 +73,7 @@
 			}			
 			?>
 			<div class="quadro">
-			<div class="row">
+			<div class="row" style="">
 			<?php foreach($pt as $pt => $ps) { //ps previsao semanal?>			
 				<div class="two columns" style="text-align:center">
 					<p><h5><?php echo $ps["data"]; ?></h5>
@@ -94,7 +95,7 @@
 				<div class="two columns" style="text-align:center">
 					<p><h5><?php echo $p->getData(); ?></h5>
 					<?php echo $p->getDiaSemana(); ?></p>
-					<p><div style="width: 50%;margin: 0 auto;"><i class="sprite sprite-<?php echo $p->getIcone(); ?>"></i></div></p>					
+					<p><div style="width: 50%;margin: 0 auto;"><i title="<?php echo $p->getDescricao(); ?>" class="sprite sprite-<?php echo $p->getIcone(); ?>"></i></div></p>					
 					<p><span style="color:#2980b9"><?php echo $p->getMinima(); ?></span><small>ºC</small> &bull; <span style="color:#c0392b"><?php echo $p->getMaxima(); ?></span><small>ºC</small></p>		
 					<p>Prob. de chuva:<br><?php echo $p->getProbChuva(); ?></p>
 					<p>&#9728; <br>&uarr; <?php echo $p->getNascerSol(); ?><br>&darr; <?php echo $p->getPorSol(); ?></p>									
