@@ -3,6 +3,31 @@
 	<head>
 	 	<meta charset="UTF-8">
 		<title>Previsão para <?php echo $lo->getNome(), " - ", $lo->getUf(); ?> | CPTEC/INPE</title>
+		<?php if(isset($_GET['colorido'])){ ?>
+		<style>
+			body{
+				/*background-color: #F4F4F4;*/
+			}
+			#pa{
+				background-color: #F5F5DC;
+			}
+			#ca{
+				background-color: #E0FFFF;
+			}
+			#ps{
+				background-color: #F0FFF0;
+			}
+			#ps article:nth-child(odd){
+				background-color: #D5FDD5;
+			}			
+			#pe{
+				background-color: #FFFFE0;
+			}
+			#pe article:nth-child(odd){
+				background-color: #FFFACD;
+			}
+		</style>
+		<?php } ?>
 	</head>
 	<body style="font-family:sans-serif;">
 		<header>
