@@ -49,25 +49,20 @@
 		</section>
 		<?php } ?>
 		<?php if(!is_null($pa)){ ?>
+		<?php $p = $pa; ?>
 		<section id="pa">
 			<header>
 				<h1>Previsão para Hoje</h1>
-			</header>
-			<?php foreach($pa as $pk => $p) { ?>
-			<article>
-				<header>
-					<h1><?php echo $p->getData(), " - ", $p->getDiaSemana(); ?></h1>
-				</header>
-				<p><strong><?php echo $p->getDescricao(); ?></strong></p>
-				<p><em><?php echo $p->getTexto(); ?></em></p>
-				<p>Temperatura Mínima: <?php echo $p->getMinima(); ?> ºC</p>
-				<p>Temperatura Máxima: <?php echo $p->getMaxima(); ?> ºC</p>
-				<p>Probabilidade de Chuva: <?php echo $p->getProbChuva(); ?></p>
-				<p>Nascer do Sol: <?php echo $p->getNascerSol(); ?></p>
-				<p>Pôr do Sol: <?php echo $p->getPorSol(); ?></p>
-				<p>Índice Ultravioleta: <?php echo $p->getUv(); ?></p>
-			</article>
-			<?php } ?>
+				<p><?php echo $p->getData(), " - ", $p->getDiaSemana(); ?></p>
+			</header>						
+			<p><strong><?php echo $p->getDescricao(); ?></strong></p>
+			<p><em><?php echo $p->getTexto(); ?></em></p>
+			<p>Temperatura Mínima: <?php echo $p->getMinima(); ?> ºC</p>
+			<p>Temperatura Máxima: <?php echo $p->getMaxima(); ?> ºC</p>
+			<p>Probabilidade de Chuva: <?php echo $p->getProbChuva(); ?></p>
+			<p>Nascer do Sol: <?php echo $p->getNascerSol(); ?></p>
+			<p>Pôr do Sol: <?php echo $p->getPorSol(); ?></p>
+			<p>Índice Ultravioleta: <?php echo $p->getUv(); ?></p>
 		</section>
 		<?php } ?>
 		<section id="ps">
