@@ -5,17 +5,9 @@
 		<title>Previsão para <?php echo $lo->getNome(), " - ", $lo->getUf(); ?> | CPTEC/INPE</title>
 		<meta property="og:site_name" content="CPTEC/INPE" />
 		<meta property="og:locale" content="pt-BR" />		
-		<meta name="description" content="" />
+		<meta name="description" content="Veja a previsão completa para a cidade <?php echo $lo->getNome(), ' - ', $lo->getUf(); ?>" />
 		<meta name="keywords" content="previsão, tempo, <?php echo $lo->getNome(), ', ', $lo->getUf(); ?>, clima, sol, chuva, temperatura" />
-		<meta name="author" content="Marcos Paulo da Silva - Visualização CPTEC/INPE" />    
-		<meta property="og:url" content="" />
-		<meta property="og:type" content="website" />    
-		<meta property="og:title" content="" />
-		<meta property="og:description" content="" />
-		<meta property="og:image" content="LINK" />
-		<meta property="og:image:type" content="image/jpeg" />
-		<meta property="og:image:width" content="300" />
-		<meta property="og:image:height" content="300" />	
+		<meta name="author" content="Marcos Paulo da Silva - Visualização CPTEC/INPE" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
 		<link rel="icon" type="image/png" href="static/img/favicon.png">
 		<link rel="stylesheet" type="text/css" href="static/css/spritesheet.css">
