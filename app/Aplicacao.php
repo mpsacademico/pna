@@ -34,6 +34,11 @@ class Aplicacao{
 		$p = $pc = json_decode($rd->getResposta(), true);	
 		$pc = new PrevisaoCompleta($pc);
 		
+		$lo = $pc->getLocalidade();
+		$ca = $pc->getCondicaoAtual();
+		$pa = $pc->getPrevisaoAtual();
+		$ps = $pc->getPrevisaoSemanal();
+		$pe = $pc->getPrevisaoEstendida();
 
 		if(!is_null($tp)){
 			if($tp=="web"){
