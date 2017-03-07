@@ -72,9 +72,15 @@
 			<?php foreach($pe as $pk => $p) { ?>
 			<article>
 				<header>
-					<h1><?php echo $p->getData(), " ", $p->getDiaSemana(); ?></h1>
+					<h1><?php echo $p->getData(), " - ", $p->getDiaSemana(); ?></h1>
 				</header>
-				<p><?php echo $p->getDescricao(); ?></p>
+				<p><strong><?php echo $p->getDescricao(); ?></strong></p>
+				<p><em><?php echo $p->getTexto(); ?></em></p>
+				<p>Temperatura Mínima: <?php echo $p->getMinima(); ?> ºC</p>
+				<p>Temperatura Máxima: <?php echo $p->getMaxima(); ?> ºC</p>
+				<p>Probabilidade de Chuva: <?php echo $p->getProbChuva(); ?></p>
+				<p>Nascer do Sol: <?php echo $p->getNascerSol(); ?></p>
+				<p>Pôr do Sol: <?php echo $p->getPorSol(); ?></p>				
 			</article>
 			<?php } ?>
 		</section>			
