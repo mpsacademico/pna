@@ -9,15 +9,18 @@
 			<h1><?php echo $lo->getNome(), " - ", $lo->getUf(); ?></h1>
 		</header>	
 		<?php if(!is_null($ca)){ ?>
-		<section>
-			<header>
+		<section style="background-color:#E0FFFF">
+			<header>			
 				<h1>Condição Atual</h1>
-			</header>			
-			<article>
-				<header>
-					<?php echo $ca->getTemperatura(); ?>
-				</header>				
-			</article>			
+			</header>	
+			<p><strong><?php echo $ca->getDescricao(); ?></strong></p>
+			<p><em><?php echo $ca->getTexto(); ?></em></p>
+			<p>Temperatura: <?php echo $ca->getTemperatura(); ?> ºC</p>	
+			<p>Umidade Relativa: <?php echo $ca->getUmidade(); ?>%</p>
+			<p>Sensação Térmica: <?php echo $ca->getSensacaoTermica(); ?> ºC</p>
+			<p>Direção do Vento: <?php echo $ca->getDirecaoVento(); ?></p>
+			<p>Velocidade do Vento: <?php echo $ca->getVelocidadeVento(); ?></p>
+			<p>Pressão Atmosférica: <?php echo $ca->getPressao(); ?></p>		
 		</section>
 		<?php } ?>
 		<?php if(!is_null($pa)){ ?>
@@ -28,9 +31,16 @@
 			<?php foreach($pa as $pk => $p) { ?>
 			<article>
 				<header>
-					<h1><?php echo $p->getData(), " ", $p->getDiaSemana(); ?></h1>
+					<h1><?php echo $p->getData(), " - ", $p->getDiaSemana(); ?></h1>
 				</header>
-				<p><?php echo $p->getDescricao(); ?></p>
+				<p><strong><?php echo $p->getDescricao(); ?></strong></p>
+				<p><em><?php echo $p->getTexto(); ?></em></p>
+				<p>Temperatura Mínima: <?php echo $p->getMinima(); ?> ºC</p>
+				<p>Temperatura Máxima: <?php echo $p->getMaxima(); ?> ºC</p>
+				<p>Probabilidade de Chuva: <?php echo $p->getProbChuva(); ?></p>
+				<p>Nascer do Sol: <?php echo $p->getNascerSol(); ?></p>
+				<p>Pôr do Sol: <?php echo $p->getPorSol(); ?></p>
+				<p>Índice Ultravioleta: <?php echo $p->getUv(); ?></p>
 			</article>
 			<?php } ?>
 		</section>
@@ -42,9 +52,16 @@
 			<?php foreach($ps as $pk => $p) { ?>
 			<article>
 				<header>
-					<h1><?php echo $p->getData(), " ", $p->getDiaSemana(); ?></h1>
+					<h1><?php echo $p->getData(), " - ", $p->getDiaSemana(); ?></h1>
 				</header>
-				<p><?php echo $p->getDescricao(); ?></p>
+				<p><strong><?php echo $p->getDescricao(); ?></strong></p>
+				<p><em><?php echo $p->getTexto(); ?></em></p>
+				<p>Temperatura Mínima: <?php echo $p->getMinima(); ?> ºC</p>
+				<p>Temperatura Máxima: <?php echo $p->getMaxima(); ?> ºC</p>
+				<p>Probabilidade de Chuva: <?php echo $p->getProbChuva(); ?></p>
+				<p>Nascer do Sol: <?php echo $p->getNascerSol(); ?></p>
+				<p>Pôr do Sol: <?php echo $p->getPorSol(); ?></p>
+				<p>Índice Ultravioleta: <?php echo $p->getUv(); ?></p>
 			</article>
 			<?php } ?>
 		</section>
@@ -60,17 +77,7 @@
 				<p><?php echo $p->getDescricao(); ?></p>
 			</article>
 			<?php } ?>
-		</section>
-		<?php $previsao_t = $p["previsao"]; ?> 
-		<?php foreach($previsao_t as $pt => $ps) { //ps previsao semanal?>
-		<h2><?php echo $ps["data"]; ?> <?php echo $ps["dia"]; ?></h2>
-		<p><?php echo $ps["desc"]; ?></p>
-		<p><?php echo $ps["texto"]; ?></p>
-		<p>Temperaturas: Min: <?php echo $ps["min"]; ?> - Max: <?php echo $ps["max"]; ?></p>
-		<p>Probabilidade de chuva: <?php echo $ps["prob"]; ?></p>
-		<p>Nascer do Sol: <?php echo $ps["sunrise"]; ?> - Pôr do Sol: <?php echo $ps["sunset"]; ?></p>
-		<p>UV: <?php echo $ps["uv"]; ?></p>
-		<?php } ?>		
+		</section>			
 		<footer>
 			<p>Última atualização em <?php echo $pc->getAtualizacao(); ?></p>
 			<p>Mudar para visualização de <a href="index.php?cidade=<?php echo $_GET['cidade']; ?>&pagina=web">página web</a></p>
