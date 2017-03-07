@@ -52,8 +52,7 @@
 		<?php $p = $pa; ?>
 		<section id="pa">
 			<header>
-				<h1>Previsão para Hoje</h1>
-				<p><?php echo $p->getData(), " - ", $p->getDiaSemana(); ?></p>
+				<h1>Hoje <?php echo $p->getData(), " - ", $p->getDiaSemana(); ?></h1>
 			</header>						
 			<p><strong><?php echo $p->getDescricao(); ?></strong></p>
 			<p><em><?php echo $p->getTexto(); ?></em></p>
@@ -105,9 +104,11 @@
 			<?php } ?>
 		</section>			
 		<footer>
+			<small>
 			<p>Última atualização em <?php echo $pc->getAtualizacao(); ?></p>
 			<p>Mudar para visualização de <a href="index.php?cidade=<?php echo $_GET['cidade']; ?>&pagina=web">página web</a></p>
 			<p>Não nós responsabilizados por qualquer informação fornecida!</p>
+			</small>
 		</footer>
 	<!-- ANALYTICS -->
 	</body>

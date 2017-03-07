@@ -4,18 +4,14 @@
 	 	<meta charset="UTF-8">
 		<title>Previsão para <?php echo $lo->getNome(), " - ", $lo->getUf(); ?> | CPTEC/INPE</title>
 		<meta property="og:site_name" content="CPTEC/INPE" />
-		<meta property="og:locale" content="pt-BR" />
-		<?php 
-		$pd = $p["previsao"][0]; //previsão do dia
-		$desc = $pd["dia"]." - ".$pd["data"].": ".$pd["desc"];		
-		?>
-		<meta name="description" content="<?php echo $desc; ?>" />
-		<meta name="keywords" content="previsão, tempo, <?php echo $p["nome"]; ?>, clima, sol, chuva, temperatura" />
+		<meta property="og:locale" content="pt-BR" />		
+		<meta name="description" content="" />
+		<meta name="keywords" content="previsão, tempo, <?php echo $lo->getNome(), ', ', $lo->getUf(); ?>, clima, sol, chuva, temperatura" />
 		<meta name="author" content="Marcos Paulo da Silva - Visualização CPTEC/INPE" />    
 		<meta property="og:url" content="" />
 		<meta property="og:type" content="website" />    
-		<meta property="og:title" content="Previsão para <?php echo $p["nome"]; ?> - CPTEC/INPE" />
-		<meta property="og:description" content="<?php echo $desc; ?>" />
+		<meta property="og:title" content="" />
+		<meta property="og:description" content="" />
 		<meta property="og:image" content="LINK" />
 		<meta property="og:image:type" content="image/jpeg" />
 		<meta property="og:image:width" content="300" />
@@ -44,10 +40,7 @@
 			color: grey;
 			font-size: 12px;
 		}
-		<?php
-		include_once("static/css/responsiveboilerplate234.min.css");				
-		?>		
-				
+		<?php include_once("static/css/responsiveboilerplate234.min.css"); ?>				
 		p {
 			margin-bottom: 2px;
 		}
@@ -70,9 +63,7 @@
 					<h2><?php echo $p->getData(), "<br>", $p->getDiaSemana(); ?></h2>
 					<p><i class="sprite sprite-<?php echo $p->getIcone(); ?>"></i></p>	
 					<p><span class="temp min"><?php echo $p->getMinima(); ?></span> <span class="celsius">ºC</span> <span class="temp max"><?php echo $p->getMaxima(); ?></span> <span class="celsius">ºC</span></p>				
-					<p><strong><?php echo $p->getDescricao(); ?></strong></p>
-					<p><em><?php echo $p->getTexto(); ?></em></p>
-					
+					<p><strong><?php echo $p->getDescricao(); ?></strong></p>					
 					<p>Probabilidade de Chuva: <?php echo $p->getProbChuva(); ?></p>
 					<p>Nascer do Sol: <?php echo $p->getNascerSol(); ?></p>
 					<p>Pôr do Sol: <?php echo $p->getPorSol(); ?></p>
@@ -90,9 +81,10 @@
 			
 
 			<footer>
-				<small>Última atualização em <?php echo $pc->getAtualizacao(); ?></small>
-			</footer>
-		
+				<p>Última atualização em <?php echo $pc->getAtualizacao(); ?></p>
+				<p>Mudar para visualização de <a href="index.php?cidade=<?php echo $_GET['cidade']; ?>&pagina=texto">página em texto</a></p>
+				<p>Não nós responsabilizados por qualquer informação fornecida!</p>
+			</footer>		
 	<!-- ANALYTICS -->
 	</body>
 </html>
