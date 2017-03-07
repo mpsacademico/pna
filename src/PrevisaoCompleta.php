@@ -51,7 +51,7 @@ class PrevisaoCompleta{
 		}
 		if(count($this->getPrevisaoSemanal())==7){
 			$this->setPrevisaoAtual($this->getPrevisaoSemanal()[0]);
-			unset($this->getPrevisaoSemanal()[0]);
+			unset($this->previsaoSemanal[0]);
 		}
 		foreach($pc["estendida"] as $p){
 			$this->previsaoEstendida[] = new PrevisaoEstendida(
