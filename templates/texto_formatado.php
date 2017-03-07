@@ -20,6 +20,7 @@
 		<?php } ?>		
 		<footer>
 			<small>Última atualização em <?php echo $p["atualizacao"]; ?></small>
+			<p>Visualização de <a href="index.php?cidade=1083&pagina=web">página web</a></p>
 		</footer>
 	<!-- ANALYTICS -->
 	</body>
