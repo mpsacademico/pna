@@ -20,14 +20,13 @@
 		<meta property="og:image:type" content="image/jpeg" />
 		<meta property="og:image:width" content="300" />
 		<meta property="og:image:height" content="300" />	
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
 		<link rel="icon" type="image/png" href="static/img/favicon.png">
 		<link rel="stylesheet" type="text/css" href="static/css/spritesheet.css">
 		<style type="text/css">		
 		.quadro{
 			background-color:#f0f0f0;
 			border-top: solid 5px #e5e5e5;
-			padding: 5px 10px 10px 10px;
 		}	
 		.diap{
 			text-align: center;
@@ -46,85 +45,54 @@
 			font-size: 12px;
 		}
 		<?php
-		include_once("static/css/normalize500.min.css");	
-		include_once("static/css/skeleton204.min.css");		
+		include_once("static/css/responsiveboilerplate234.min.css");				
 		?>		
 				
 		p {
 			margin-bottom: 2px;
 		}
+		body{font-family:'Crimison Text',Arial,sans-serif;font-size:1em}h1{font-size:24px;font-weight:bold;text-align:center;margin-bottom:25px;margin-top:20px}p{margin-bottom:10px;text-align:justify}p.red{color:#f00;text-align:center}select{padding:5px;width:100%}/*nav{margin-bottom:10px}nav ul{list-style:none}nav ul li{display:inline}*/nav a{display:inline-block;background:#333;color:white;padding:5px 15px;border:1px solid white;text-decoration:none}nav a:hover{border:1px solid #89aac0;background:#89aac0}nav a:active{background:blue}@media(max-width:480px){nav a {width:100%; padding:5px 0px;}}.center{text-align:center}.center img{margin-bottom: 10px}}
 		</style>
 	</head>
 	<body style="background-color:#f4f4f4">	
-		<div class="container" style="margin-top:25px;">			
-			<div class="row">
-				<div class="twelve columns">
+
+		<div class="container">
+			<div class="content">
+				<div class="col12">
 					<header>
-						<h1><?php echo $p["nome"]; ?> - <?php echo $p["uf"]; ?></h1>
+						<h1><?php echo $lo->getNome(), " - ", $lo->getUf(); ?></h1>
 					</header>
 				</div>
 			</div>
-			<?php
-			$pt = $p["previsao"]; //previsão do tempo 
-			if(count($pt)==7){
-				$ps = $pt[0]; //previsão dia atual
-				unset($pt[0]);
-			?>
-			<div style="background-color:#FFDEAD;padding:10px">
-			<div class="row">
-				<div class="eight columns">
-					<p><h5 style="display:inline"><?php echo $ps["data"]; ?></h5>
-					<?php echo $ps["dia"]; ?></p>
-					<p><i class="sprite sprite-<?php echo $ps["ico"]; ?>"></i></p>					
-					<p><span style="color:#2980b9"><?php echo $ps["min"]; ?></span><small>ºC</small> <span style="color:#c0392b"><?php echo $ps["max"]; ?></span><small>ºC</small></p>					
+			<div class="content quadro">
+				<?php foreach($ps as $pk => $p) { ?>
+				<div class="col2">
+					<h2><?php echo $p->getData(), "<br>", $p->getDiaSemana(); ?></h2>
+					<p><i class="sprite sprite-<?php echo $p->getIcone(); ?>"></i></p>	
+					<p><span class="temp min"><?php echo $p->getMinima(); ?></span> <span class="celsius">ºC</span> <span class="temp max"><?php echo $p->getMaxima(); ?></span> <span class="celsius">ºC</span></p>				
+					<p><strong><?php echo $p->getDescricao(); ?></strong></p>
+					<p><em><?php echo $p->getTexto(); ?></em></p>
+					
+					<p>Probabilidade de Chuva: <?php echo $p->getProbChuva(); ?></p>
+					<p>Nascer do Sol: <?php echo $p->getNascerSol(); ?></p>
+					<p>Pôr do Sol: <?php echo $p->getPorSol(); ?></p>
+					<p>Índice Ultravioleta: <?php echo $p->getUv(); ?></p>
 				</div>
-				<div class="four columns">
-					<p>Prob. de chuva:<br><?php echo $ps["prob"]; ?></p>
-					<p>&#9728; <br>&uarr; <?php echo $ps["sunrise"]; ?><br>&darr; <?php echo $ps["sunset"]; ?></p>
-					<p>UV: <br><?php echo $ps["uv"]; ?></p>	
-				</div>
+				<?php } ?>
 			</div>
-			<?php
-			}			
-			?>
-</div>
-			<div class="quadro">
-			<div class="row" style="">
-			<?php foreach($pt as $pt => $ps) { //ps previsao semanal?>			
-				<div class="two columns" style="text-align:center">
-					<p><h5><?php echo $ps["data"]; ?></h5>
-					<?php echo $ps["dia"]; ?></p>
-					<p><i class="sprite sprite-<?php echo $ps["ico"]; ?>"></i></p>					
-					<p><span class="temp min"><?php echo $ps["min"]; ?></span><span class="celsius">ºC</span> <span class="temp max"><?php echo $ps["max"]; ?></span><span class="celsius">ºC</span></p>		
-					<p>Prob. de chuva:<br><?php echo $ps["prob"]; ?></p>
-					<p>&#9728; <br>&uarr; <?php echo $ps["sunrise"]; ?><br>&darr; <?php echo $ps["sunset"]; ?></p>
-					<p>UV: <br><?php echo $ps["uv"]; ?></p>					
-				</div>
-			<?php } ?>
-			</div>
-			</div>
+		</div>
 
-			<div class="quadro">
-			<div class="row">
+		
 			<?php $pe = $pc->getPrevisaoEstendida(); $i = 0; ?>
 			<?php foreach($pe as $p) { $i++; ?>
-				<div class="two columns diap">
-					<p><h5><?php echo $p->getData(); ?></h5>
-					<?php echo $p->getDiaSemana(); ?></p>
-					<p><i title="<?php echo $p->getDescricao(); ?>" class="sprite sprite-<?php echo $p->getIcone(); ?>"></i></p>					
-					<p>
-					<span class="temp min"><?php echo $p->getMinima(); ?></span>&nbsp;&nbsp;&nbsp;<span class="temp max"><?php echo $p->getMaxima(); ?></span></p>		
-					<p>Prob. de chuva:<br><?php echo $p->getProbChuva(); ?></p>
-					<p>&#9728; <br>&uarr;<?php echo $p->getNascerSol(); ?>&nbsp;&darr;<?php echo $p->getPorSol(); ?></p>									
-				</div>
+				
 			<?php if($i==6){break;}} ?>
-			</div>
-			</div>
+			
 
 			<footer>
 				<small>Última atualização em <?php echo $pc->getAtualizacao(); ?></small>
 			</footer>
-		</div>
+		
 	<!-- ANALYTICS -->
 	</body>
 </html>
