@@ -12,31 +12,35 @@
 		<link rel="icon" type="image/png" href="static/img/favicon.png">
 		<link rel="stylesheet" type="text/css" href="static/css/spritesheet.css">
 		<style type="text/css">		
-		.quadro{
-			background-color:#f0f0f0;
-			border-top: solid 5px #e5e5e5;
-		}	
-		.diap{
-			text-align: center;
-		}
-		.temp{
-			font-size:36px;
-		}
-		.min{			
-			color: #2980b9;
-		}
-		.max{
-			color: #c0392b;
-		}
-		.celsius{
-			color: grey;
-			font-size: 12px;
-		}
-		<?php include_once("static/css/responsiveboilerplate234.min.css"); ?>				
-		p {
-			margin-bottom: 2px;
-		}
-		body{font-family:'Crimison Text',Arial,sans-serif;font-size:1em}h1{font-size:24px;font-weight:bold;text-align:center;margin-bottom:25px;margin-top:20px}p{margin-bottom:10px;text-align:justify}p.red{color:#f00;text-align:center}select{padding:5px;width:100%}/*nav{margin-bottom:10px}nav ul{list-style:none}nav ul li{display:inline}*/nav a{display:inline-block;background:#333;color:white;padding:5px 15px;border:1px solid white;text-decoration:none}nav a:hover{border:1px solid #89aac0;background:#89aac0}nav a:active{background:blue}@media(max-width:480px){nav a {width:100%; padding:5px 0px;}}.center{text-align:center}.center img{margin-bottom: 10px}}
+			.quadro{				
+				margin-top: 5px;		
+				padding-top: 15px;	
+			}
+			.diap{
+				text-align: center;
+			}
+			.temp{
+				font-size:36px;
+			}
+			.min{			
+				color: #2980b9;
+			}
+			.max{
+				color: #c0392b;
+			}
+			.celsius{
+				color: grey;
+				font-size: 12px;
+			}
+			footer{
+				padding: 2px;				
+			}
+			footer p{
+				font-size: 12px;
+				text-align: center;
+			}
+			<?php include_once("static/css/responsiveboilerplate234.min.css"); ?>		
+			body{font-family:'Crimison Text',Arial,sans-serif;font-size:1em}h1{font-size:24px;font-weight:bold;text-align:center;margin-bottom:25px;margin-top:20px}p{margin-bottom:10px;text-align:justify}p.red{color:#f00;text-align:center}select{padding:5px;width:100%}/*nav{margin-bottom:10px}nav ul{list-style:none}nav ul li{display:inline}*/nav a{display:inline-block;background:#333;color:white;padding:5px 15px;border:1px solid white;text-decoration:none}nav a:hover{border:1px solid #89aac0;background:#89aac0}nav a:active{background:blue}@media(max-width:480px){nav a {width:100%; padding:5px 0px;}}.center{text-align:center}.center img{margin-bottom: 10px}}			
 		</style>
 	</head>
 	<body style="background-color:#f4f4f4">	
@@ -63,20 +67,25 @@
 				</div>
 				<?php } ?>
 			</div>
+			<div class="content quadro">
+				<?php $i = 0; foreach($pe as $p) { $i++; ?>
+				<div class="col2">
+					<h2><?php echo $p->getData(), "<br>", $p->getDiaSemana(); ?></h2>
+					<p><i class="sprite sprite-<?php echo $p->getIcone(); ?>"></i></p>	
+					<p><span class="temp min"><?php echo $p->getMinima(); ?></span> <span class="celsius">ºC</span> <span class="temp max"><?php echo $p->getMaxima(); ?></span> <span class="celsius">ºC</span></p>				
+					<p><strong><?php echo $p->getDescricao(); ?></strong></p>					
+					<p>Probabilidade de Chuva: <?php echo $p->getProbChuva(); ?></p>
+					<p>Nascer do Sol: <?php echo $p->getNascerSol(); ?></p>
+					<p>Pôr do Sol: <?php echo $p->getPorSol(); ?></p>
+				</div>
+				<?php if($i==6){break;}} ?>
+			</div>
 		</div>
-
-		
-			<?php $pe = $pc->getPrevisaoEstendida(); $i = 0; ?>
-			<?php foreach($pe as $p) { $i++; ?>
-				
-			<?php if($i==6){break;}} ?>
-			
-
-			<footer>
-				<p>Última atualização em <?php echo $pc->getAtualizacao(); ?></p>
-				<p>Mudar para visualização de <a href="index.php?cidade=<?php echo $_GET['cidade']; ?>&pagina=texto">página em texto</a></p>
-				<p>Não nós responsabilizados por qualquer informação fornecida!</p>
-			</footer>		
+		<footer>				
+			<p>Última atualização em <?php echo $pc->getAtualizacao(); ?></p>
+			<p>Não nós responsabilizados por qualquer informação fornecida  &bull; Mudar para visualização de <a href="index.php?cidade=<?php echo $_GET['cidade']; ?>&pagina=texto">página em texto</a></p>
+			<p></p>
+		</footer>		
 	<!-- ANALYTICS -->
 	</body>
 </html>
