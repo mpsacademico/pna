@@ -9,7 +9,7 @@
 			<h1><?php echo $lo->getNome(), " - ", $lo->getUf(); ?></h1>
 		</header>	
 		<?php if(!is_null($ca)){ ?>
-		<section style="background-color:#E0FFFF">
+		<section id="ca">
 			<header>			
 				<h1>Condição Atual</h1>
 			</header>	
@@ -24,7 +24,7 @@
 		</section>
 		<?php } ?>
 		<?php if(!is_null($pa)){ ?>
-		<section>
+		<section id="pa">
 			<header>
 				<h1>Previsão para Hoje</h1>
 			</header>
@@ -45,7 +45,7 @@
 			<?php } ?>
 		</section>
 		<?php } ?>
-		<section>
+		<section id="ps">
 			<header>
 				<h1>Previsão Semanal</h1>
 			</header>
@@ -65,7 +65,7 @@
 			</article>
 			<?php } ?>
 		</section>
-		<section>
+		<section id="pe">
 			<header>
 				<h1>Previsão Estendida</h1>
 			</header>
