@@ -2,7 +2,7 @@
 <html>
 	<head>
 	 	<meta charset="UTF-8">
-		<title>Previsão para <?php echo $p["nome"]; ?> - CPTEC/INPE</title>	
+		<title>Previsão para <?php echo $lo->getNome(), " - ", $lo->getUf(); ?> | CPTEC/INPE</title>
 		<meta property="og:site_name" content="CPTEC/INPE" />
 		<meta property="og:locale" content="pt-BR" />
 		<?php 
