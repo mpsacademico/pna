@@ -106,7 +106,7 @@
 		<footer>
 			<p>Última atualização em <?php echo $pc->getAtualizacao(); ?></p>
 			<p>Mudar para visualização de <a href="index.php?cidade=<?php echo $_GET['cidade']; ?>&pagina=web">página web</a></p>
-			<p>Não nós responsabilizados por qualquer informação fornecida!</p>
+			<p>Não nos responsabilizados por qualquer informação fornecida!</p>
 		</footer>
 	<!-- ANALYTICS -->
 	</body>

@@ -86,7 +86,7 @@
 		</div>
 		<footer>				
 			<p>Última atualização em <?php echo $pc->getAtualizacao(); ?></p>
-			<p>Não nós responsabilizados por qualquer informação fornecida  &bull; Mudar para visualização de <a href="index.php?cidade=<?php echo $_GET['cidade']; ?>&pagina=texto">página em texto</a></p>
+			<p>Não nos responsabilizados por qualquer informação fornecida  &bull; Mudar para visualização de <a href="index.php?cidade=<?php echo $_GET['cidade']; ?>&pagina=texto">página em texto</a></p>
 			<p></p>
 		</footer>		
 	<!-- ANALYTICS -->
