@@ -30,9 +30,8 @@
 		</style>
 	</head>
 	<body style="background-color:#f4f4f4">	
-		Bem-vindo ao customizador!
-
-	
+		<h1><img src="/pna/static/img/logotipo.png" width="100px" height="100px"></h1>
+		<h2>Bem-vindo a Previsão em Nova Aba!</h2>
 	<!-- ANALYTICS -->
 	</body>
 </html>
