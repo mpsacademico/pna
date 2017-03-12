@@ -84,10 +84,10 @@
 				<?php if($i==6){break;}} ?>
 			</div>
 		</div>
-		<footer>				
-			<p>Última atualização em <?php echo $pc->getAtualizacao(); ?></p>
-			<p>Não nos responsabilizados por qualquer informação fornecida  &bull; Mudar para visualização de <a href="index.php?cidade=<?php echo $_GET['cidade']; ?>&pagina=texto">página em texto</a></p>
-			<p></p>
+		<footer>
+			<p>Mudar para visualização de <a href="index.php?cidade=<?php echo $_GET['cidade']; ?>&pagina=texto">página em texto</a></p>	
+			<p>Última atualização em <?php echo $pc->getAtualizacao(); ?> | Fonte: <a href="http://www.cptec.inpe.br/" title="Abrir página inicial do CPTEC/INPE" target="_blank">CPTEC/INPE</a><br>
+			Não nos responsabilizamos pelo uso das informações fornecidas!</p>					
 		</footer>		
 	<!-- ANALYTICS -->
 	</body>

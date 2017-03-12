@@ -104,9 +104,9 @@
 			<?php } ?>
 		</section>			
 		<footer>
-			<p>Última atualização em <?php echo $pc->getAtualizacao(); ?></p>
-			<p>Mudar para visualização de <a href="index.php?cidade=<?php echo $_GET['cidade']; ?>&pagina=web">página web</a></p>
-			<p>Não nos responsabilizados por qualquer informação fornecida!</p>
+			<p>Mudar para visualização de <a href="index.php?cidade=<?php echo $_GET['cidade']; ?>&pagina=web">página web</a></p>	
+			<p>Última atualização em <?php echo $pc->getAtualizacao(); ?> | Fonte: <a href="http://www.cptec.inpe.br/" title="Abrir página inicial do CPTEC/INPE" target="_blank">CPTEC/INPE</a><br>
+			Não nos responsabilizamos pelo uso das informações fornecidas!</p>					
 		</footer>
 	<!-- ANALYTICS -->
 	</body>
