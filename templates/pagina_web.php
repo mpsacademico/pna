@@ -62,9 +62,9 @@
 				<?php foreach($ps as $pk => $p) { ?>
 				<div class="col2">
 					<h2><?php echo $p->getData(), "<br>", $p->getDiaSemana(); ?></h2>
-					<p><i class="sprite sprite-<?php echo $p->getIcone(); ?>" title="<?php echo $p->getTexto(); ?>"></i></p>	
+					<p><i class="sprite sprite-<?php echo $p->getIcone(); ?>" title="<?php echo $p->getDescricao(); ?>"></i></p>	
 					<p><span class="temp min"><?php echo $p->getMinima(); ?></span> <span class="celsius">ºC</span> <span class="temp max"><?php echo $p->getMaxima(); ?></span> <span class="celsius">ºC</span></p>				
-					<p><strong><?php echo $p->getDescricao(); ?></strong></p>					
+										
 					<p><i class="wi wi-umbrella" title="Probabilidade de Chuva"></i> <span class="dnone">Probabilidade de Chuva:</span> <?php echo $p->getProbChuva(); ?></p>
 					<p><i class="wi wi-sunrise" title="Nascer do Sol"></i> <span class="dnone">Nascer do Sol:</span> <?php echo $p->getNascerSol(); ?> <i class="wi wi-sunset" title="Pôr do Sol"></i> <span class="dnone">Pôr do Sol:</span> <?php echo $p->getPorSol(); ?></p>
 					<p><i class="wi wi-hot" title="Índice Ultravioleta"></i> <span class="dnone">Índice Ultravioleta:</span> <?php echo $p->getUv(); ?></p>
@@ -75,9 +75,8 @@
 				<?php $i = 0; foreach($pe as $p) { $i++; ?>
 				<div class="col2">
 					<h2><?php echo $p->getData(), "<br>", $p->getDiaSemana(); ?></h2>
-					<p><i class="sprite sprite-<?php echo $p->getIcone(); ?>" title="<?php echo $p->getTexto(); ?>"></i></p>	
-					<p><span class="temp min"><?php echo $p->getMinima(); ?></span> <span class="celsius">ºC</span> <span class="temp max"><?php echo $p->getMaxima(); ?></span> <span class="celsius">ºC</span></p>				
-					<p><strong><?php echo $p->getDescricao(); ?></strong></p>					
+					<p><i class="sprite sprite-<?php echo $p->getIcone(); ?>" title="<?php echo $p->getDescricao(); ?>"></i></p>	
+					<p><span class="temp min"><?php echo $p->getMinima(); ?></span> <span class="celsius">ºC</span> <span class="temp max"><?php echo $p->getMaxima(); ?></span> <span class="celsius">ºC</span></p>									
 					<p><i class="wi wi-umbrella" title="Probabilidade de Chuva"></i> <span class="dnone">Probabilidade de Chuva:</span> <?php echo $p->getProbChuva(); ?></p>
 					<p><i class="wi wi-sunrise" title="Nascer do Sol"></i> <span class="dnone">Nascer do Sol:</span> <?php echo $p->getNascerSol(); ?> <i class="wi wi-sunset" title="Pôr do Sol"></i> <span class="dnone">Pôr do Sol:</span> <?php echo $p->getPorSol(); ?></p>
 				</div>
