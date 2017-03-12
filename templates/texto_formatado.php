@@ -8,6 +8,12 @@
 			body{
 				/*background-color: #F4F4F4;*/
 			}
+			#pa, #ca, #ps, #pe{
+				padding: 5px;
+			}
+			article{
+				padding: 5px;
+			}
 			#pa{
 				background-color: #F5F5DC;
 			}
