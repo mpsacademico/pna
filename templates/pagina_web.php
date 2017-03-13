@@ -22,10 +22,11 @@
 				margin-top: 5px;		
 				padding-top: 15px;	
 			}
-			#condicao{
-				background-color: #F0F8FF;
+			#condicao{				
 				margin-top: 5px;		
-				padding-top: 15px;
+			}
+			#condicao *{
+				text-align: center;
 			}
 			.quadro *{
 				text-align: center;
@@ -72,27 +73,20 @@
 					<header>
 						<h1><?php echo $lo->getNome(), " - ", $lo->getUf(); ?></h1>
 					</header>
+					<?php if(!is_null($ca)){ ?>
+					<div id="condicao">
+						<p><span class="temp"><?php echo $ca->getTemperatura(); ?></span> <span class="celsius">ºC</span></p>
+						<!--<p><i class="sprite sprite-<?php echo $ca->getIcone(); ?>" title="<?php echo $ca->getDescricao(); ?>"></i></p>-->
+						<p><strong><?php echo $ca->getDescricao(); ?></strong> <em><?php echo $ca->getTexto(); ?></em></p>				
+						<p><i class="wi wi-thermometer-exterior" title="Sensação Térmica"></i> <span class="dnone">Sensação Térmica:</span> <?php echo $ca->getSensacaoTermica(); ?> ºC &bull; 
+						<i class="wi wi-humidity" title="Umidade Relativa"></i> <span class="dnone">Umidade Relativa:</span> <?php echo $ca->getUmidade(); ?>% &bull; 
+						<i class="wi wi-windy" title="Direção do Vento"></i> <span class="dnone">Direção do Vento:</span> <?php echo $ca->getDirecaoVento(); ?> &bull; 
+						<i class="wi wi-strong-wind" title="Velocidade do Vento"></i> <span class="dnone">Velocidade do Vento:</span> <?php echo $ca->getVelocidadeVento(); ?> &bull; 
+						<i class="wi wi-barometer" title="Pressão Atmosférica"></i> <span class="dnone">Pressão Atmosférica:</span> <?php echo $ca->getPressao(); ?></p>
+					</div>
+					<?php } ?>
 				</div>
 			</div>
-			<?php if(!is_null($ca)){ ?>
-			<div id="condicao" class="content">
-				<div class="col5">
-					<p><i class="sprite sprite-<?php echo $ca->getIcone(); ?>" title="<?php echo $ca->getDescricao(); ?>"></i></p>
-					<p><strong><?php echo $ca->getDescricao(); ?></strong></p>
-					<p><em><?php echo $ca->getTexto(); ?></em></p>
-				</div>
-				<div class="col2">
-					<p><span class="temp"><?php echo $ca->getTemperatura(); ?></span> <span class="celsius">ºC</span></p>
-				</div>
-				<div class="col5">
-					<p><i class="wi wi-humidity" title="Umidade Relativa"></i> <span class="dnone">Umidade Relativa:</span> <?php echo $ca->getUmidade(); ?>%</p>
-					<p><i class="wi wi-thermometer-exterior" title="Sensação Térmica"></i> <span class="dnone">Sensação Térmica:</span> <?php echo $ca->getSensacaoTermica(); ?> ºC</p>
-					<p><i class="wi wi-windy" title="Direção do Vento"></i> <span class="dnone">Direção do Vento:</span> <?php echo $ca->getDirecaoVento(); ?></p>
-					<p><i class="wi wi-strong-wind" title="Velocidade do Vento"></i> <span class="dnone">Velocidade do Vento:</span> <?php echo $ca->getVelocidadeVento(); ?></p>
-					<p><i class="wi wi-barometer" title="Pressão Atmosférica"></i> <span class="dnone">Pressão Atmosférica:</span> <?php echo $ca->getPressao(); ?></p>		
-				</div>
-			</div>
-			<?php } ?>
 			<div class="content quadro">
 				<?php foreach($ps as $pk => $p) { ?>
 				<div class="col2">
