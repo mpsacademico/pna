@@ -58,6 +58,12 @@
 				font-size: 12px;
 				text-align: center;
 			}
+			.tptexto p{
+				color: #696969;
+				padding: 2px;
+				font-size: 12px;
+				text-align: center;
+			}
 			.dnone{
 				display: none;
 			}
@@ -78,7 +84,7 @@
 					<div id="condicao">
 						<p><span class="temp"><?php echo $ca->getTemperatura(); ?></span> <span class="celsius">ºC</span></p>
 						<!--<p><i class="sprite sprite-<?php echo $ca->getIcone(); ?>" title="<?php echo $ca->getDescricao(); ?>"></i></p>-->
-						<p><strong><?php echo $ca->getDescricao(); ?></strong> <em><?php echo $ca->getTexto(); ?></em></p>				
+						<p><strong><?php echo $ca->getDescricao(); ?></strong>. <em><?php echo $ca->getTexto(); ?></em></p>				
 						<p><i class="wi wi-thermometer-exterior" title="Sensação Térmica"></i> <span class="dnone">Sensação Térmica:</span> <?php echo $ca->getSensacaoTermica(); ?> ºC &bull; 
 						<i class="wi wi-humidity" title="Umidade Relativa"></i> <span class="dnone">Umidade Relativa:</span> <?php echo $ca->getUmidade(); ?>% &bull; 
 						<i class="wi wi-windy" title="Direção do Vento"></i> <span class="dnone">Direção do Vento:</span> <?php echo $ca->getDirecaoVento(); ?> &bull; 
@@ -120,11 +126,7 @@
 				<?php if($i==6){break;}} ?>
 			</div>
 		</div>
-		<footer style="margin-top:25px;">
-			<p>Mudar para visualização de <a href="index.php?cidade=<?php echo $_GET['cidade']; ?>&pagina=texto">página em texto</a></p>	
-			<p>Última atualização em <?php echo $pc->getAtualizacao(); ?> | Fonte: <a href="http://www.cptec.inpe.br/" title="Abrir página inicial do CPTEC/INPE" target="_blank">CPTEC/INPE</a><br>
-			Não nos responsabilizamos pelo uso das informações fornecidas!</p>					
-		</footer>		
-	<!-- ANALYTICS -->
-	</body>
-</html>
+		<div class="tptexto">
+			<p>Mudar para visualização de <a href="index.php?cidade=<?php echo $_GET['cidade']; ?>&pagina=web">página web</a></p>
+		</div>
+<?php require_once("rodape.php"); ?>
