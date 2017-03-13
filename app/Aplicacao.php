@@ -26,9 +26,6 @@ class Aplicacao{
 			die();
 		}
 		
-		
-
-		
 		$cl = isset($_GET['cidade']) ? $_GET['cidade'] : NULL;
 		$rd = new RequisicaoDados("http://localhost/maspt/api/previsao.php", "?cl=".$cl."&tr=json&ca=".CA);	
 		
