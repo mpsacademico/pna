@@ -69,6 +69,26 @@
 					</header>
 				</div>
 			</div>
+			<?php if(!is_null($ca)){ ?>
+			<div class="content">
+				<div class="col5">
+					
+					<p><i class="sprite sprite-<?php echo $ca->getIcone(); ?>" title="<?php echo $ca->getDescricao(); ?>"></i></p>
+					<p><strong><?php echo $ca->getDescricao(); ?></strong></p>
+					<p><em><?php echo $ca->getTexto(); ?></em></p>
+				</div>
+				<div class="col2">
+					<p><span class="temp"><?php echo $ca->getTemperatura(); ?></span> <span class="celsius">ºC</span></p>
+				</div>
+				<div class="col5">
+					<p>Umidade Relativa: <?php echo $ca->getUmidade(); ?>%</p>
+					<p>Sensação Térmica: <?php echo $ca->getSensacaoTermica(); ?> ºC</p>
+					<p>Direção do Vento: <?php echo $ca->getDirecaoVento(); ?></p>
+					<p>Velocidade do Vento: <?php echo $ca->getVelocidadeVento(); ?></p>
+					<p>Pressão Atmosférica: <?php echo $ca->getPressao(); ?></p>		
+				</div>
+			</div>
+			<?php } ?>
 			<div class="content quadro">
 				<?php foreach($ps as $pk => $p) { ?>
 				<div class="col2">
