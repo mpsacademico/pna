@@ -127,6 +127,6 @@
 			</div>
 		</div>
 		<div class="tptexto">
-			<p>Mudar para visualização de <a href="index.php?cidade=<?php echo $_GET['cidade']; ?>&pagina=web">página web</a></p>
+			<p>Mudar para visualização de <a href="index.php?cidade=<?php echo $_GET['cidade']; ?>&pagina=texto">página em texto</a></p>
 		</div>
 <?php require_once("rodape.php"); ?>
