@@ -9,7 +9,7 @@ class Aplicacao{
 		
 		$cl = isset($_GET['cidade']) ? $_GET['cidade'] : NULL; //1
 		$tp = isset($_GET['pagina']) ? $_GET['pagina'] : NULL; //0
-		$ac = isset($_GET['contraste']) ? $_GET['constraste'] : NULL; //0
+		//$ac = isset($_GET['contraste']) ? $_GET['constraste'] : NULL;
 		
 		$tps = array("web", "texto");
 		
@@ -18,22 +18,19 @@ class Aplicacao{
 		}
 		
 		if(is_null($cl)){			
-			require_once("templates/pagina_inicial.php");
-			die();
+			$this->renderizar("templates/pagina_inicial.php");
+			
 		}elseif(empty($cl)){
-			$erros[] = "Nenhuma cidade foi informada";
-			require_once("templates/erro_generico.php");
-			die();
+			$this->abortar("Nenhuma cidade foi informada");
 		}
 		
 		$cl = isset($_GET['cidade']) ? $_GET['cidade'] : NULL;
 		$rd = new RequisicaoDados("http://localhost/maspt/api/previsao.php", "?cl=".$cl."&tr=json&ca=".CA);	
 		
 		if($rd->getResposta()=="false"){
-			$erros[] = "Não foi possível exibir a previsão";
-			require_once("templates/erro_generico.php");
-			die();
+			$this->abortar("Não foi possível exibir a previsão");
 		}
+		
 		$p = $pc = json_decode($rd->getResposta(), true);	
 		$pc = new PrevisaoCompleta($pc);
 		
@@ -54,5 +51,16 @@ class Aplicacao{
 		}
 		
 	}
+
+	public function renderizar($template){
+		require_once($template);
+		die();
+	}
+
+	public function abortar($erros){
+		require_once("templates/erro_generico.php");
+		die();
+	}
+
 }
 ?>

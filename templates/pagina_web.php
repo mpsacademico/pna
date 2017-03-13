@@ -2,7 +2,7 @@
 <html>
 	<head>
 	 	<meta charset="UTF-8">
-		<title>Previsão para <?php echo $lo->getNome(), " - ", $lo->getUf(); ?> | CPTEC/INPE</title>
+		<title>Previsão para <?php echo $lo->getNome(), " - ", $lo->getUf(); ?> | PNA</title>
 		<meta property="og:site_name" content="CPTEC/INPE" />
 		<meta property="og:locale" content="pt-BR" />		
 		<meta name="description" content="Veja a previsão completa para a cidade <?php echo $lo->getNome(), ' - ', $lo->getUf(); ?>" />

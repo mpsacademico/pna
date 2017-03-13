@@ -2,7 +2,7 @@
 <html>
 	<head>
 	 	<meta charset="UTF-8">
-		<title>Previsão para <?php echo $lo->getNome(), " - ", $lo->getUf(); ?> | CPTEC/INPE</title>
+		<title>Previsão para <?php echo $lo->getNome(), " - ", $lo->getUf(); ?> | PNA</title>
 		<?php if(isset($_GET['colorido'])){ ?>
 		<style>
 			body{
