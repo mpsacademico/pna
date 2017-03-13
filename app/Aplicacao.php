@@ -31,6 +31,12 @@ class Aplicacao{
 		
 		$cl = isset($_GET['cidade']) ? $_GET['cidade'] : NULL;
 		$rd = new RequisicaoDados("http://localhost/maspt/api/previsao.php", "?cl=".$cl."&tr=json&ca=".CA);	
+		
+		if($rd->getResposta()=="false"){
+			$erros[] = "Não foi possível exibir a previsão";
+			require_once("templates/erro_generico.php");
+			die();
+		}
 		$p = $pc = json_decode($rd->getResposta(), true);	
 		$pc = new PrevisaoCompleta($pc);
 		
