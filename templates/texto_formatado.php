@@ -3,11 +3,8 @@
 	<head>
 	 	<meta charset="UTF-8">
 		<title>Previsão para <?php echo $lo->getNome(), " - ", $lo->getUf(); ?> | PNA</title>
-		<?php if(isset($_GET['colorido'])){ ?>
-		<style>
-			body{
-				/*background-color: #F4F4F4;*/
-			}
+		<?php if($co==true){ ?>
+		<style>			
 			#pa, #ca, #ps, #pe{
 				padding: 5px;
 			}

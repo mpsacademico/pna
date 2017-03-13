@@ -10,6 +10,7 @@ class Aplicacao{
 		$cl = isset($_GET['cidade']) ? $_GET['cidade'] : NULL; //1
 		$tp = isset($_GET['pagina']) ? $_GET['pagina'] : NULL; //0
 		//$ac = isset($_GET['contraste']) ? $_GET['constraste'] : NULL;
+		$co = isset($_GET['colorido']) ? $_GET['colorido'] : NULL;
 		
 		$tps = array("web", "texto");
 		
@@ -18,7 +19,7 @@ class Aplicacao{
 		}
 		
 		if(is_null($cl)){			
-			$this->renderizar("templates/pagina_inicial.php");
+			$this->renderizar("pagina_inicial.php");
 			
 		}elseif(empty($cl)){
 			$this->abortar("Nenhuma cidade foi informada");
@@ -30,7 +31,7 @@ class Aplicacao{
 		if($rd->getResposta()=="false"){
 			$this->abortar("Não foi possível exibir a previsão");
 		}
-		
+
 		$p = $pc = json_decode($rd->getResposta(), true);	
 		$pc = new PrevisaoCompleta($pc);
 		
@@ -53,12 +54,12 @@ class Aplicacao{
 	}
 
 	public function renderizar($template){
-		require_once($template);
+		require_once("templates/".$template); //problema com escopo das variáveis
 		die();
 	}
 
-	public function abortar($erros){
-		require_once("templates/erro_generico.php");
+	public function abortar($erros, $tipo = "generico"){
+		require_once("templates/erro_".$tipo.".php");
 		die();
 	}
 
