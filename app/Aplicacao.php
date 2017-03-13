@@ -6,26 +6,23 @@ class Aplicacao{
 	public function executar(){
 	
 		$erros = array();
+		$tps = array("web", "texto");
 		
 		$cl = isset($_GET['cidade']) ? $_GET['cidade'] : NULL; //1
-		$tp = isset($_GET['pagina']) ? $_GET['pagina'] : NULL; //0
-		//$ac = isset($_GET['contraste']) ? $_GET['constraste'] : NULL;
-		$co = isset($_GET['colorido']) ? $_GET['colorido'] : NULL;
-		
-		$tps = array("web", "texto");
+		$tp = isset($_GET['pagina']) ? $_GET['pagina'] : NULL; //0		
+		$co = isset($_GET['colorido']) ? $_GET['colorido'] : NULL; //0
+		//$ac = isset($_GET['contraste']) ? $_GET['constraste'] : NULL; //0		
 		
 		if(is_null($tp) || empty($tp) || !in_array($tp, $tps)){
 			$tp = "web";
 		}
 		
 		if(is_null($cl)){			
-			$this->renderizar("pagina_inicial.php");
-			
+			$this->renderizar("pagina_inicial.php");			
 		}elseif(empty($cl)){
 			$this->abortar("Nenhuma cidade foi informada");
-		}
+		}		
 		
-		$cl = isset($_GET['cidade']) ? $_GET['cidade'] : NULL;
 		$rd = new RequisicaoDados("http://localhost/maspt/api/previsao.php", "?cl=".$cl."&tr=json&ca=".CA);	
 		
 		if($rd->getResposta()=="false"){
@@ -54,7 +51,7 @@ class Aplicacao{
 	}
 
 	public function renderizar($template){
-		require_once("templates/".$template); //problema com escopo das variáveis
+		require_once("templates/".$template); //problema com escopo de variáveis
 		die();
 	}
 
