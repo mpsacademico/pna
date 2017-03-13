@@ -15,12 +15,17 @@
 		<link rel="stylesheet" type="text/css" href="static/css/weather-icons-wind.min.css">
 		<style type="text/css">		
 			body{
-				background-color: #f4f4f4;
+				background-color: #fdfdfd;
 			}
 			.quadro{	
-				background-color:#ededed;
+				background-color: #f4f4f4;
 				margin-top: 5px;		
 				padding-top: 15px;	
+			}
+			#condicao{
+				background-color: #F0F8FF;
+				margin-top: 5px;		
+				padding-top: 15px;
 			}
 			.quadro *{
 				text-align: center;
@@ -56,7 +61,7 @@
 				display: none;
 			}
 			<?php include_once("static/css/responsiveboilerplate234.min.css"); ?>		
-			body{font-family:'Crimison Text',Arial,sans-serif;font-size:1em}h1{font-size:24px;font-weight:bold;text-align:center;margin-bottom:25px;margin-top:20px}p{margin-bottom:10px;text-align:justify}p.red{color:#f00;text-align:center}select{padding:5px;width:100%}/*nav{margin-bottom:10px}nav ul{list-style:none}nav ul li{display:inline}*/nav a{display:inline-block;background:#333;color:white;padding:5px 15px;border:1px solid white;text-decoration:none}nav a:hover{border:1px solid #89aac0;background:#89aac0}nav a:active{background:blue}@media(max-width:480px){nav a {width:100%; padding:5px 0px;}}.center{text-align:center}.center img{margin-bottom: 10px}}			
+			body{font-family:'Segoe Ui','Crimison Text',Arial,sans-serif;font-size:1em}h1{font-size:24px;font-weight:bold;text-align:center;margin-bottom:25px;margin-top:20px}p{margin-bottom:10px;text-align:justify}p.red{color:#f00;text-align:center}select{padding:5px;width:100%}/*nav{margin-bottom:10px}nav ul{list-style:none}nav ul li{display:inline}*/nav a{display:inline-block;background:#333;color:white;padding:5px 15px;border:1px solid white;text-decoration:none}nav a:hover{border:1px solid #89aac0;background:#89aac0}nav a:active{background:blue}@media(max-width:480px){nav a {width:100%; padding:5px 0px;}}.center{text-align:center}.center img{margin-bottom: 10px}}			
 		</style>
 	</head>
 	<body>	
@@ -70,9 +75,8 @@
 				</div>
 			</div>
 			<?php if(!is_null($ca)){ ?>
-			<div class="content">
+			<div id="condicao" class="content">
 				<div class="col5">
-					
 					<p><i class="sprite sprite-<?php echo $ca->getIcone(); ?>" title="<?php echo $ca->getDescricao(); ?>"></i></p>
 					<p><strong><?php echo $ca->getDescricao(); ?></strong></p>
 					<p><em><?php echo $ca->getTexto(); ?></em></p>
@@ -81,11 +85,11 @@
 					<p><span class="temp"><?php echo $ca->getTemperatura(); ?></span> <span class="celsius">ºC</span></p>
 				</div>
 				<div class="col5">
-					<p>Umidade Relativa: <?php echo $ca->getUmidade(); ?>%</p>
-					<p>Sensação Térmica: <?php echo $ca->getSensacaoTermica(); ?> ºC</p>
-					<p>Direção do Vento: <?php echo $ca->getDirecaoVento(); ?></p>
-					<p>Velocidade do Vento: <?php echo $ca->getVelocidadeVento(); ?></p>
-					<p>Pressão Atmosférica: <?php echo $ca->getPressao(); ?></p>		
+					<p><i class="wi wi-humidity" title="Umidade Relativa"></i> <span class="dnone">Umidade Relativa:</span> <?php echo $ca->getUmidade(); ?>%</p>
+					<p><i class="wi wi-thermometer-exterior" title="Sensação Térmica"></i> <span class="dnone">Sensação Térmica:</span> <?php echo $ca->getSensacaoTermica(); ?> ºC</p>
+					<p><i class="wi wi-windy" title="Direção do Vento"></i> <span class="dnone">Direção do Vento:</span> <?php echo $ca->getDirecaoVento(); ?></p>
+					<p><i class="wi wi-strong-wind" title="Velocidade do Vento"></i> <span class="dnone">Velocidade do Vento:</span> <?php echo $ca->getVelocidadeVento(); ?></p>
+					<p><i class="wi wi-barometer" title="Pressão Atmosférica"></i> <span class="dnone">Pressão Atmosférica:</span> <?php echo $ca->getPressao(); ?></p>		
 				</div>
 			</div>
 			<?php } ?>
@@ -95,7 +99,7 @@
 					<div class="topo">
 						<h2><?php echo $p->getData(), "<br>", $p->getDiaSemana(); ?></h2>
 						<p><i class="sprite sprite-<?php echo $p->getIcone(); ?>" title="<?php echo $p->getDescricao(); ?>"></i></p>	
-						<p><span class="temp min"><?php echo $p->getMinima(); ?></span> <span class="celsius">ºC</span> <span class="temp max"><?php echo $p->getMaxima(); ?></span> <span class="celsius">ºC</span></p>				
+						<p><span class="temp min" title="Temperatura Mínima"><?php echo $p->getMinima(); ?></span> <span class="celsius">ºC</span> <span class="temp max" title="Temperatura Máxima"><?php echo $p->getMaxima(); ?></span> <span class="celsius">ºC</span></p>				
 					</div>	
 					<div class="info">
 						<p><i class="wi wi-umbrella" title="Probabilidade de Chuva"></i> <span class="dnone">Probabilidade de Chuva:</span> <?php echo $p->getProbChuva(); ?></p>
@@ -111,7 +115,7 @@
 					<div class="topo">
 						<h2><?php echo $p->getData(), "<br>", $p->getDiaSemana(); ?></h2>
 						<p><i class="sprite sprite-<?php echo $p->getIcone(); ?>" title="<?php echo $p->getDescricao(); ?>"></i></p>	
-						<p><span class="temp min"><?php echo $p->getMinima(); ?></span> <span class="celsius">ºC</span> <span class="temp max"><?php echo $p->getMaxima(); ?></span> <span class="celsius">ºC</span></p>			
+						<p><span class="temp min" title="Temperatura Mínima"><?php echo $p->getMinima(); ?></span> <span class="celsius">ºC</span> <span class="temp max" title="Temperatura Máxima"><?php echo $p->getMaxima(); ?></span> <span class="celsius">ºC</span></p>			
 					</div>
 					<div class="info">
 						<p><i class="wi wi-umbrella" title="Probabilidade de Chuva"></i> <span class="dnone">Probabilidade de Chuva:</span> <?php echo $p->getProbChuva(); ?></p>
