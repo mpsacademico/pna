@@ -91,6 +91,14 @@
 						<i class="wi wi-strong-wind" title="Velocidade do Vento"></i> <span class="dnone">Velocidade do Vento:</span> <?php echo $ca->getVelocidadeVento(); ?> &bull; 
 						<i class="wi wi-barometer" title="Pressão Atmosférica"></i> <span class="dnone">Pressão Atmosférica:</span> <?php echo $ca->getPressao(); ?></p>
 					</div>
+					<?php }elseif(!is_null($pa)){ ?>
+					<div id="condicao">					
+						<p><span class="temp min" title="Temperatura Mínima"><?php echo $pa->getMinima(); ?></span> <span class="celsius">ºC</span> <span class="temp max" title="Temperatura Máxima"><?php echo $pa->getMaxima(); ?></span> <span class="celsius">ºC</span></p>						
+						<p><strong><?php echo $pa->getDescricao(); ?></strong>. <em><?php echo $pa->getTexto(); ?></em></p>	
+						<p><i class="wi wi-umbrella" title="Probabilidade de Chuva"></i> <span class="dnone">Probabilidade de Chuva:</span> <?php echo $pa->getProbChuva(); ?> &bull; 
+						<i class="wi wi-sunrise" title="Nascer do Sol"></i> <span class="dnone">Nascer do Sol:</span> <?php echo $pa->getNascerSol(); ?> &bull; <i class="wi wi-sunset" title="Pôr do Sol"></i> <span class="dnone">Pôr do Sol:</span> <?php echo $pa->getPorSol(); ?> &bull;
+						<i class="wi wi-hot" title="Índice Ultravioleta"></i> <span class="dnone">Índice Ultravioleta:</span> <?php echo $pa->getUv(); ?></p>
+					</div>
 					<?php } ?>
 				</div>
 			</div>
