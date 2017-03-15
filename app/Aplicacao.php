@@ -11,7 +11,15 @@ class Aplicacao{
 		$cl = isset($_GET['cidade']) ? $_GET['cidade'] : NULL; //1
 		$tp = isset($_GET['pagina']) ? $_GET['pagina'] : NULL; //0		
 		$co = isset($_GET['colorido']) ? $_GET['colorido'] : NULL; //0
-		//$ac = isset($_GET['contraste']) ? $_GET['constraste'] : NULL; //0		
+		//$ac = isset($_GET['contraste']) ? $_GET['constraste'] : NULL; //0
+
+		$busca = isset($_GET['busca']) ? $_GET['busca'] : NULL; //0
+
+		if(!is_null($busca)){			
+			$rd = new RequisicaoDados("http://localhost/lobrasil/index.php", "?q=".urlencode($busca));			
+			$d = array("q"=>$busca, "c"=>json_decode($rd->getResposta(), true));
+			$this->renderizar("pagina_inicial.php", $d);			
+		}
 		
 		if(is_null($tp) || empty($tp) || !in_array($tp, $tps)){
 			$tp = "web";
@@ -50,7 +58,7 @@ class Aplicacao{
 		
 	}
 
-	public function renderizar($template){
+	public function renderizar($template, $d = NULL){
 		require_once("templates/".$template); //problema com escopo de variáveis
 		die();
 	}

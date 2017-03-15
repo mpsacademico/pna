@@ -26,14 +26,24 @@
 	<body style="background-color:#f4f4f4">	
 		<div class="container">
 			<div class="content">
-				<div class="col2">
+				<div class="col4">
 					&nbsp;
 				</div>
-				<div class="col8">
+				<div class="col4">
 					<h1><img src="/pna/static/img/logotipo.png" width="100px" height="100px"></h1>
-					<center><h2>Bem-vindo ao Previsão em Nova Aba!</h2>
-					<a href="/pna/index.php?cidade=244">Previsão para São Paulo</a>
-					</center>					
+					<center><h2>Bem-vindo ao Previsão em Nova Aba!</h2>					
+					<form method="GET" action="">
+						<input type="text" name="busca" value="<?php if(isset($d['q'])) echo $d['q']; ?>" placeholder="Busque sua cidade aqui">
+						<input type="submit" value="Pesquisar">
+					</form><br>
+					</center>	
+					<?php 
+					if(!is_null($d)){
+						foreach($d['c'] as $c){
+							echo '<p><a href="/pna/index.php?cidade='.$c['regiao_cptec'].'">'.$c['nome'].' - '.$c['uf'].'</a></p>';
+						}
+					}
+					?>			
 				</div>
 			</div>
 		</div>
