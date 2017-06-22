@@ -19,7 +19,17 @@ A requisição de dados depende da aplicação [Lobrasil](https://github.com/mps
 
 <kbd>![Página de Erro do PNA](doc/pagina_erro.jpg)</kbd>
 
-## Linguagens e Ferramentas
+## Linguagens, Ferramentas e Bibliotecas
 
 - PHP, HTML, CSS e SQL (MySQL)
 - Notepad++ e Chrome Web Browser
+- Normalize.css 5.0.0 e Skeleton 2.0.4
+
+## Paleta de Cores
+
+- ![#f4f4f4](https://placehold.it/15/f4f4f4/000000?text=+) `#f4f4f4` quadro inicial
+- ![#FFFFE0](https://placehold.it/15/FFFFE0/000000?text=+) `#FFFFE0` quadro de listagem de cidades buscadas
+- ![#4682B4](https://placehold.it/15/4682B4/000000?text=+) `#4682B4` nomes de cidades buscadas
+- ![#2980b9](https://placehold.it/15/2980b9/000000?text=+) `#2980b9` temperaturas mínimas
+- ![#c0392b](https://placehold.it/15/c0392b/000000?text=+) `#c0392b` temperaturas máximas
+- ![#696969](https://placehold.it/15/696969/000000?text=+) `#696969` texto de rodapé
