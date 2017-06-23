@@ -6,18 +6,16 @@ O PNA concentra as requisições na raiz de seu domínio (arquivo index.php). Co
 
 Estão disponíveis dois diferentes tipos de páginas: página web e texto formatado. A página de texto formatado não possui imagens e utiliza uma marcação simples de HTML. A página de texto é mais leve no quesito carregamento. As páginas podem ser visualizadas em navegadores web de qualquer tipo de dispositivo. As informações estatísticas sobre os acessos são registrados pela ferramenta Google Analytics. Foram usadas bibliotecas externas como o Normalize, Skeleton etc.  
 
-A página apresenta um agradável visual e espera-se fornecer uma maneira rápida de visualizar a previsão do tempo. Esse projeto apresentou bons resultados.
-
-Os ícones flat de condições de tempo utilizados foram produzidos pelo projeto [PTFLATICON](https://github.com/mpsacademico/ptflaticon).  
-A requisição de dados depende da aplicação [Lobrasil](https://github.com/mpsacademico/lobrasil).
-
 <kbd>![Página de Previsão Web para Capital](doc/previsao_web_capital.jpg)</kbd>
+
+Os ícones flat de condições de tempo utilizados foram produzidos pelo projeto [PTFLATICON](https://github.com/mpsacademico/ptflaticon).   
+A requisição de dados depende da aplicação [Lobrasil](https://github.com/mpsacademico/lobrasil).
 
 ## Linguagens, Ferramentas e Bibliotecas
 
 - PHP, HTML, CSS e SQL (MySQL)
 - Notepad++ e Chrome Web Browser
-- Normalize.css 5.0.0 e Skeleton 2.0.4
+- Weather Icons, Normalize.css 5.0.0 e Skeleton 2.0.4
 
 ## Paleta de Cores
 
@@ -27,3 +25,7 @@ A requisição de dados depende da aplicação [Lobrasil](https://github.com/mps
 - ![#2980b9](https://placehold.it/15/2980b9/000000?text=+) `#2980b9` temperaturas mínimas
 - ![#c0392b](https://placehold.it/15/c0392b/000000?text=+) `#c0392b` temperaturas máximas
 - ![#696969](https://placehold.it/15/696969/000000?text=+) `#696969` texto de rodapé
+
+## Releases
+
+v1.0.0.0 - Lançamento do PNA
