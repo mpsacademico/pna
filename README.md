@@ -13,12 +13,6 @@ A requisição de dados depende da aplicação [Lobrasil](https://github.com/mps
 
 <kbd>![Página de Previsão Web para Capital](doc/previsao_web_capital.jpg)</kbd>
 
-<kbd>![Página Inicial do PNA](doc/pagina_inicial.jpg)</kbd>
-
-<kbd>![Formulário de Busca de Cidades do PNA](doc/busca_cidades.jpg)</kbd>
-
-<kbd>![Página de Erro do PNA](doc/pagina_erro.jpg)</kbd>
-
 ## Linguagens, Ferramentas e Bibliotecas
 
 - PHP, HTML, CSS e SQL (MySQL)
