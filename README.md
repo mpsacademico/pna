@@ -28,4 +28,4 @@ A requisição de dados depende da aplicação [Lobrasil](https://github.com/mps
 
 ## Releases
 
-v1.0.0.0 - Lançamento do PNA
+[v1.0.0.0 - Lançamento do PNA](https://github.com/mpsacademico/pna/releases/tag/v1.0.0.0)
